@@ -1,11 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Estudo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        #estudo {
+            background-color: #333;
+            padding: 5px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        #estudo ul {
+            list-style-type: none;
+            margin: 0 15px;
+        }
+        #estudo ul li {
+            display: inline;
+        }
+        #estudo ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 16px;
+            display: inline-block;
+        }
+        #estudo ul li a:hover {
+            border-bottom: 2px solid #fff;
+            transition: all 0.1s ;
+            border-radius: 4px;
+        }
+        #estudo ul li a:active {
+            background-color: #555;
+        }
+        #estudo ul li a:focus {
+            outline: none;
+            border-bottom: 2px solid #fff;
+        }
+        #estudo:hover{
+            border-bottom: 2px solid red;
+        }
+        #interoducao1 {
+            padding: 20px;
+            max-width: 700px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 3px solid #333;
+        }
+        #conteudo2{
+            padding: 20px;
+            max-width: 700px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 3px solid #333;
+        }
+        #conclusao{
+            padding: 20px;
+            max-width: 700px;
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 3px solid #333;
+        }
+    </style>
 </head>
 <body>
-    
+    <nav id="estudo">
+        <ul>
+            <li><a href="#introducao1">Introdução</a></li>
+        </ul>
+        <ul>
+            <li><a href="#conteudo2">Conteúdo</a></li>
+        </ul>
+        <ul>
+            <li><a href="#conclusao">Conclusão</a></li>
+        </ul>
+    </nav>
+   <br><br>
+    <!-- Conteúdo da página -->
+     <nav id="interoducao1">
+        <h1>Introdução</h1>
+        <p>Esse site vai ajudar você a aprender sobre programação.</p>
+        <br>
+        <p>O estudo abordará os seguintes tópicos:</p>
+
+        <br>
+        <ul>
+            <li>Estrutura básica do HTML</li>
+            <li>Elementos e tags comuns</li>
+            <li>Formatação de texto e layout com CSS</li>
+            <li>Responsividade e design adaptativo</li>
+            <li>Boas práticas de desenvolvimento web</li>
+        </ul>
+
+        <br>
+        <p>Ao final deste estudo, você terá uma compreensão sólida dos conceitos básicos de HTML e CSS, permitindo que você crie suas próprias páginas web do zero. Lembre-se de praticar regularmente para aprimorar suas habilidades e explorar mais recursos avançados à medida que avança em seu aprendizado. Boa sorte!</p>
+     </nav>
+     <!-- Conteúdo da página -->
+     <nav id="conteudo2">
+        <h1>Conteúdo</h1>
+        <p>Aqui está o conteúdo principal da página.</p>
+        <br>
+        <ul>
+            <li>HTML: HyperText Markup Language, a linguagem de marcação usada para criar a estrutura de uma página web.</li>
+            <li>CSS: Cascading Style Sheets, a linguagem de estilo usada para definir a aparência e o layout de uma página web.</li>
+            <li>JavaScript: Uma linguagem de programação que permite adicionar interatividade e dinamismo às páginas web.</li>
+            <li>Responsividade: A capacidade de um site se adaptar a diferentes tamanhos de tela e dispositivos.</li>
+            <li>Boas práticas: Conjunto de diretrizes para escrever código limpo, eficiente e fácil de manter.</li>
+        </ul>
+     </nav>
+     <nav id="conclusao">
+        <h1>Conclusão</h1>
+        <p>Em resumo, este estudo abordou os fundamentos do desenvolvimento web, incluindo HTML, CSS, JavaScript, responsividade e boas práticas. Com esses conhecimentos, você está bem equipado para criar suas próprias páginas web e continuar explorando o mundo do desenvolvimento web. Lembre-se de praticar regularmente e buscar recursos adicionais para aprimorar suas habilidades. Boa sorte em sua jornada de aprendizado!</p>
+        <br>
+        <ul>
+            <li>Resumo dos conceitos aprendidos</li>
+            <li>Próximos passos no aprendizado</li>
+        </ul>
+     </nav>
 </body>
 </html>
