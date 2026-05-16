@@ -21,8 +21,7 @@
             display: flex;
             justify-content: center;
             text-align: center;
-            position: fixed;
-            top: 0;
+            top: 5px;
             width: 100%;
             z-index: 1000;
         }
@@ -44,7 +43,7 @@
             transition: all 0.1s ;
             border-radius: 4px;
         }
-        #estudo ul li a:active {
+        #estudo ul li a.active {
             background-color: #555;
         }
         #estudo ul li a:focus {
@@ -54,7 +53,7 @@
         #estudo:hover{
             border-bottom: 2px solid red;
         }
-        #interoducao1 {
+        #introducao1 {
             padding: 20px;
             max-width: 700px;
             margin: 20px auto;
@@ -62,6 +61,11 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border: 3px solid #333;
+        }
+        #introducao1:hover{
+            border: 3px solid green;
+            transition: all 0.1s ;
+            border-radius: 4px;
         }
         #conteudo2{
             padding: 20px;
@@ -72,6 +76,11 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border: 3px solid #333;
         }
+        #conteudo2:hover{
+            border: 3px solid red;
+            transition: all 0.1s ;
+            border-radius: 4px;
+        }
         #conclusao{
             padding: 20px;
             max-width: 700px;
@@ -80,6 +89,82 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             border: 3px solid #333;
+        }
+        #conclusao:hover{
+            border: 3px solid blue;
+            transition: all 0.1s ;
+            border-radius: 4px;
+        }
+        /* Estilos para o menu */
+        #menu {
+            display: flex;
+            position: fixed;
+            top: 1px;
+            right: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            border: 2px solid #333;
+            cursor: pointer;
+        }
+        /* Estilos para o catalogo */
+        #catalogo {
+            top: 50px;
+            position: fixed;
+            right: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 4px;
+            border: 2px solid #333;
+        }
+        #catalogo ul {
+            list-style-type: none;
+        }
+        #catalogo ul li {
+            margin-bottom: 10px;
+        }
+        #catalogo ul li a {
+            color: blue;
+            text-decoration: none;
+        }
+        #catalogo ul li a:hover {
+            text-decoration: underline;
+        }
+        #fechar{
+            top: 0px;
+        }
+
+        @media (max-width: 640px) {
+            #estudo {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                padding: 10px 8px;
+            }
+            #estudo ul {
+                margin: 0 6px;
+            }
+            #estudo ul li a {
+                padding: 8px 12px;
+                font-size: 0.95rem;
+            }
+            #menu {
+                right: 10px;
+                padding: 8px;
+            }
+            #catalogo {
+                width: calc(100% - 20px);
+                max-width: 300px;
+                right: 10px;
+                bottom: 10px;
+                top: 50px;
+            }
+            #catalogo h1 {
+                font-size: 1rem;
+            }
+            #catalogo ul li {
+                margin-bottom: 8px;
+            }
         }
     </style>
 </head>
@@ -95,9 +180,13 @@
             <li><a href="#conclusao">Conclusão</a></li>
         </ul>
     </nav>
-   <br><br>
+    <div id="menu">
+            <a href="#">
+                <img src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="Menu" width="15" height="15">
+            </a>
+    </div>
     <!-- Conteúdo da página -->
-     <nav id="interoducao1">
+     <nav id="introducao1">
         <h1>Introdução</h1>
         <p>Esse site vai ajudar você a aprender sobre programação.</p>
         <br>
@@ -137,5 +226,63 @@
             <li>Próximos passos no aprendizado</li>
         </ul>
      </nav>
+     <!-- catalogo -->
+     <nav id="catalogo">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1 style="margin: 0;">Sites De Aprendizado</h1>
+            <button id="fecharCatalogo" style="background: none; border: none; font-size: 1.5rem; cursor: pointer; color: #333;">✕</button>
+        </div>
+        <br>
+        <ul>
+            <li><a href="https://www.w3schools.com/">W3Schools - Tutoriais de HTML, CSS e JavaScript</a></li>
+            <li><a href="https://developer.mozilla.org/pt-BR/">MDN Web Docs - Documentação e guias de desenvolvimento web</a></li>
+            <li><a href="https://www.freecodecamp.org/">freeCodeCamp - Plataforma de aprendizado de programação</a></li>
+            <li><a href="https://www.codecademy.com/">Codecademy - Cursos interativos de programação</a></li>
+            <li><a href="https://www.udemy.com/">Udemy - Cursos online sobre desenvolvimento web</a></li>
+        </ul>
+     </nav>
+     <!-- fazer o menu funcional -->
+        <script>
+            const menu = document.getElementById('menu');
+            const catalogo = document.getElementById('catalogo');
+            const navLinks = document.querySelectorAll('#estudo ul li a');
+            const fechar = document.getElementById('fechar');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+
+            if (location.hash) {
+                const current = document.querySelector(`#estudo ul li a[href="${location.hash}"]`);
+                if (current) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    current.classList.add('active');
+                }
+            }
+
+            menu.addEventListener('click', () => {
+                if (catalogo.style.display === 'block') {
+                    catalogo.style.display = 'none';
+                } else {
+                    catalogo.style.display = 'block';
+                }
+            });
+
+            const fecharCatalogo = document.getElementById('fecharCatalogo');
+            if (fecharCatalogo) {
+                fecharCatalogo.addEventListener('click', () => {
+                    catalogo.style.display = 'none';
+                });
+            }
+
+            if (fechar) {
+                fechar.addEventListener('click', () => {
+                    catalogo.style.display = 'none';
+                });
+            }
+        </script>
 </body>
 </html>
